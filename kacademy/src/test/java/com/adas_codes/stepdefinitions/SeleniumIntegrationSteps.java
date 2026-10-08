@@ -1,5 +1,5 @@
 package com.adas_codes.stepdefinitions;
-
+import com.adas_codes.pages.KhanAcademyHomePage;
 import com.adas_codes.driver.DriverManager;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -20,12 +20,17 @@ public class SeleniumIntegrationSteps {
 
     @When("the browser navigates to Khan Academy")
     public void theBrowserNavigatesToKhanAcademy() {
-        driver.get("https://www.khanacademy.org/");
+      KhanAcademyHomePage homePage =
+            new KhanAcademyHomePage(driver);
+
+    homePage.open();
     }
 
     @Then("the Khan Academy page should be displayed")
     public void theKhanAcademyPageShouldBeDisplayed() {
-        assertNotNull(driver);
-        assertTrue(driver.getTitle().contains("Khan Academy"));
+       KhanAcademyHomePage homePage =
+            new KhanAcademyHomePage(driver);
+
+    assertTrue(homePage.isDisplayed());
     }
 }
