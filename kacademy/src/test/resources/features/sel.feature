@@ -1,5 +1,6 @@
 Feature: Selenium integration
 
-  Scenario: Verify Selenium can open a browser
+  Scenario: Verify Selenium can navigate to Khan Academy
     Given the browser is opened
-    Then the browser should open successfully
+    When the browser navigates to Khan Academy
+    Then the Khan Academy page should be displayed
